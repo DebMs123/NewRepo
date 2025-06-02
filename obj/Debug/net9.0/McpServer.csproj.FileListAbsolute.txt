@@ -35,3 +35,4 @@ C:\Users\deborshideb\McpServer\obj\Debug\net9.0\refint\McpServer.dll
 C:\Users\deborshideb\McpServer\obj\Debug\net9.0\McpServer.pdb
 C:\Users\deborshideb\McpServer\obj\Debug\net9.0\McpServer.genruntimeconfig.cache
 C:\Users\deborshideb\McpServer\obj\Debug\net9.0\ref\McpServer.dll
+C:\Users\deborshideb\McpServer\obj\Debug\net9.0\McpServer.sourcelink.json
