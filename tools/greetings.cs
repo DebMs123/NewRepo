@@ -1,36 +1,20 @@
-using ModelContextProtocol.Server;
 using System.ComponentModel;
-using System.Collections.Generic;
-using System.Text.Json;
+using MCP.HTTP.Server.Entities;
+using MCP.HTTP.Server.Services;
+using ModelContextProtocol.Server;
 
 namespace McpServer.Tools;
 
 [McpServerToolType]
-public sealed class GreetingTools
+public class GreetingTools
 {
     public GreetingTools()
     {
     }
     [McpServerTool, Description("Counts the number of words in the input message.")]
-    public static string WordCount(string message)
+    
+    public async Task<int?> WordCount([Description("The input")] string message)
     {
-        if (string.IsNullOrWhiteSpace(message))
-            return "Sorry, please provide valid text";
-        var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
-        var finalmsg = string.Concat("The answer is: ", msg);
-        var response = new
-        {
-            content = new List<object>
-            {
-                new
-                {
-                    type = "text",
-                    text = finalmsg
-                }
-            }
-        };
-
-        string jsonResponse = JsonSerializer.Serialize(response, new JsonSerializerOptions { WriteIndented = true });
-        return jsonResponse;
+        return await  var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
     }
 }
