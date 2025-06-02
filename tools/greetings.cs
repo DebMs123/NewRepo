@@ -12,7 +12,7 @@ public sealed class GreetingTools
     {
     }
     [McpServerTool, Description("Counts the number of words in the input message.")]
-    public static int WordCount(string message)
+    public static string WordCount(string message)
     {
         if (string.IsNullOrWhiteSpace(message))
             return 0;
@@ -31,7 +31,6 @@ public sealed class GreetingTools
         };
 
         string jsonResponse = JsonSerializer.Serialize(response, new JsonSerializerOptions { WriteIndented = true });
-
         return jsonResponse;
     }
 }
