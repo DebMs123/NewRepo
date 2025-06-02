@@ -15,11 +15,6 @@ public sealed class GreetingTools
         if (string.IsNullOrWhiteSpace(message))
             return 0;
 
-        var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
-        return content: [
-        {
-          type: "text",
-          text: msg,
-        }
+        return message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
     }
 }
