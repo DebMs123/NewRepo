@@ -15,7 +15,7 @@ public sealed class GreetingTools
     public static string WordCount(string message)
     {
         if (string.IsNullOrWhiteSpace(message))
-            return 0;
+            return "Sorry, please provide valid text";
         var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
         var finalmsg = string.Concat("The answer is: ", msg);
         var response = new
