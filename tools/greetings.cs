@@ -15,6 +15,6 @@ public class GreetingTools
     
     public async Task<int?> WordCount([Description("The input")] string message)
     {
-        return await  var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        return await message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
     }
 }
