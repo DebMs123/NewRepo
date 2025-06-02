@@ -10,7 +10,7 @@ public class GreetingTools
     {
     }
     [McpServerTool, Description("Counts the number of words in the input message.")] 
-    public async Task<int?> WordCount([Description("The input")] string message)
+    public int WordCount(string message)
     {
         return message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
     }
