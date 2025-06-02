@@ -1,5 +1,7 @@
 using ModelContextProtocol.Server;
 using System.ComponentModel;
+using System.Collections.Generic;
+using System.Text.Json;
 
 namespace McpServer.Tools;
 
@@ -14,7 +16,21 @@ public sealed class GreetingTools
     {
         if (string.IsNullOrWhiteSpace(message))
             return 0;
+        var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        var response = new
+        {
+            content = new List<object>
+            {
+                new
+                {
+                    type = "text",
+                    text = msg
+                }
+            }
+        };
 
-        return message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        string jsonResponse = JsonSerializer.Serialize(response, new JsonSerializerOptions { WriteIndented = true });
+
+        return jsonResponse;
     }
 }
