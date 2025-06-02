@@ -5,7 +5,7 @@ using ModelContextProtocol.Server;
 using McpServer.Tools; // Add this if JsonRpcMessage is defined here
 var builder = WebApplication.CreateBuilder(args);
 // Register MCP server and discover tools from the current assembly
-builder.Services.AddMcpServer().WithHttpTransport().WithToolsFromAssembly();
+builder.Services.AddMcpServer().WithHttpTransport().WithTools<GreetingTools>();
 var app = builder.Build();
 // Add MCP middleware
 MapAbsoluteEndpointUriMcp(app);
