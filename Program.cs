@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMcpServer().WithHttpTransport().WithToolsFromAssembly();
 var app = builder.Build();
 // Add MCP middleware
-app.MapMcp();
+app.MapMcp("/mcp");
 // Ensure routing is configured
 app.UseRouting();
 // Add a simple home page
