@@ -17,6 +17,7 @@ public sealed class GreetingTools
         if (string.IsNullOrWhiteSpace(message))
             return 0;
         var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
+        var finalmsg = string.Concat("The answer is: ", msg);
         var response = new
         {
             content = new List<object>
@@ -24,7 +25,7 @@ public sealed class GreetingTools
                 new
                 {
                     type = "text",
-                    text = msg
+                    text = finalmsg
                 }
             }
         };
