@@ -10,5 +10,5 @@ app.MapMcp();
 // Ensure routing is configured
 app.UseRouting();
 // Add a simple home page
-app.MapGet("/home", () => "MCP Server on Azure App Service is running!");
+app.MapGet("/", () => "MCP Server on Azure App Service is running!");
 app.Run();
