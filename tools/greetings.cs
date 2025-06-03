@@ -6,7 +6,7 @@ namespace McpServer.Tools;
 [McpServerToolType]
 public class GreetingTools
 {
-    [McpServerTool, Description("Get a random Chuck Norris joke")]
+    [McpServerTool, Description("Count the number of words in a message.")]
     public string WordCount(string message)
     {
         var msg = message.Split(new[] { ' ', '\t', '\n' }, StringSplitOptions.RemoveEmptyEntries).Length;
