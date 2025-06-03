@@ -6,7 +6,25 @@ using McpServer.Tools; // Add this if JsonRpcMessage is defined here
 var builder = WebApplication.CreateBuilder(args);
 // Register MCP server and discover tools from the current assembly
 builder.Services.AddMcpServer().WithHttpTransport().WithTools<GreetingTools>();
+// Add CORS for HTTP transport support in browsers
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
+// Configure the HTTP request pipeline
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+// Enable CORS
+app.UseCors();
 // Add MCP middleware
 MapAbsoluteEndpointUriMcp(app);
 // Add a simple home page
